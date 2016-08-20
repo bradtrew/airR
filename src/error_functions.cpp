@@ -28,7 +28,10 @@ double mean_abs_error(const arma::vec & actual, const arma::vec & predicted) {
   return arma::mean(absolute_error(actual, predicted));
 }
 
-
+// [[Rcpp::export]]
+double median_abs_error(const arma::vec & actual, const arma::vec & predicted) {
+  return arma::median(absolute_error(actual, predicted));
+}
 
 // CharacterVector x = CharacterVector::create("foo", "bar");
 // NumericVector y   = NumericVector::create(0.0, 2.0);
