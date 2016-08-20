@@ -1,3 +1,4 @@
 exportPattern("^[[:alpha:]]+")
+import(RcppArmadillo)
 importFrom(Rcpp, evalCpp)
 useDynLib(airR)

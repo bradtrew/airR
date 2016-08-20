@@ -1,13 +1,19 @@
 Package: airR
 Type: Package
-Title: What the Package Does (Title Case)
+Title: A package containing many common metrics and error
+    functions for regression and classification.
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Authors@R: person("Brad", "Trewhella", email = "brad.trewhella@gmail.com",
+  role = c("aut", "cre"))
+Maintainer: <brad.trewhella@gmail.com>
+Description: Contains functions for measuring the error of predictions from models.
+License: GPL-2
 LazyData: TRUE
-Imports: 
-    Rcpp (>= 0.12.6)
-LinkingTo: 
-    Rcpp
+Imports:
+    Rcpp (>= 0.12.6),
+    RcppArmadillo (>= 0.4.200.0)
+LinkingTo:
+    Rcpp,
+    RcppArmadillo
+Depends:
+    RcppArmadillo
