@@ -8,7 +8,7 @@ arma::vec squared_error(const arma::vec & actual, const arma::vec & predicted) {
   if(actual.n_elem != predicted.n_elem) {
     stop("actual and predicted have a different number of elements.");
   }
-    return pow(actual - predicted,2);
+  return pow(actual - predicted,2);
 }
 
 // [[Rcpp::export]]
