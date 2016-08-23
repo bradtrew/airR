@@ -21,6 +21,34 @@ double accuracy(const arma::vec & actual, const arma::vec & predicted, const dou
   return arma::mean(results);
 }
 
+double fbeta_score(const arma::vec & actual, const arma::vec & predicted, const double beta = 1) {
+  if(actual.n_elem != predicted.n_elem) {
+    stop("actual and predicted have a different number of elements.");
+  }
+  double true_pos, true_neg, false_pos, false_neg;
+  for (int i =0; i< actual.n_elem;i++) {
+    if (actual(i)==predicted(i)) {
+      if(actual(i)==1) {
+        true_pos +=1;
+      } else {
+        true_neg +=1;
+      }
+    } else {
+      if(actual(i)==1) {
+        false_neg +=1;
+      } else {
+        false_pos +=1;
+      }
+    }
+  }
+  return ((1 + pow(beta,2)) * true_pos) /
+  ((1 + pow(beta,2))* true_pos + pow(beta,2)*false_neg + false_pos);
+}
+
+double f1_score(const arma::vec & actual, const arma::vec & predicted) {
+  return fbeta_score(actual,predicted,1);
+}
+
 
 
 // CharacterVector x = CharacterVector::create("foo", "bar");
