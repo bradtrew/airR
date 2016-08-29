@@ -10,8 +10,123 @@
 #' of class membership at a point
 #' @param threshold Optional parameter which is the probability threshold
 #' at which a point is classified as a member of class 1.
+#' @export
 accuracy <- function(actual, predicted, threshold = 0.5) {
     .Call('airR_accuracy', PACKAGE = 'airR', actual, predicted, threshold)
+}
+
+#' F beta score
+#'
+#' This function computes the F beta score for predictions.
+#'
+#' @param actual A vector containing the observed class of a point
+#' @param predicted A vector containing the predicted class or probability
+#' of class membership at a point
+#' @param beta Specifies which F score you want to calculate (defaults to 1)
+#' @export
+fbeta_score <- function(actual, predicted, beta = 1) {
+    .Call('airR_fbeta_score', PACKAGE = 'airR', actual, predicted, beta)
+}
+
+#' F 1 score
+#'
+#' This function computes the F 1 score for predictions.
+#'
+#' @param actual A vector containing the observed class of a point
+#' @param predicted A vector containing the predicted class or probability
+#' of class membership at a point
+#' @export
+f1_score <- function(actual, predicted) {
+    .Call('airR_f1_score', PACKAGE = 'airR', actual, predicted)
+}
+
+#' Precision
+#'
+#' This function computes the precision of predictions.
+#'
+#' @param actual A vector containing the observed class of a point
+#' @param predicted A vector containing the predicted class
+#' @export
+precision <- function(actual, predicted) {
+    .Call('airR_precision', PACKAGE = 'airR', actual, predicted)
+}
+
+#' Recall
+#'
+#' This function computes the recall of predictions.
+#'
+#' @param actual A vector containing the observed class of a point
+#' @param predicted A vector containing the predicted class
+#' @export
+recall <- function(actual, predicted) {
+    .Call('airR_recall', PACKAGE = 'airR', actual, predicted)
+}
+
+#' True Negative Rate
+#'
+#' This function computes the true negative rate of predictions.
+#'
+#' @param actual A vector containing the observed class of a point
+#' @param predicted A vector containing the predicted class
+#' @export
+tru_neg_rate <- function(actual, predicted) {
+    .Call('airR_tru_neg_rate', PACKAGE = 'airR', actual, predicted)
+}
+
+#' Brier Score
+#'
+#' This function computes the brier score of predictions.
+#'
+#' @param actual A vector containing the observed class of a point
+#' @param predicted A vector containing the predicted probabilities
+#' @export
+brier_score <- function(actual, predicted) {
+    .Call('airR_brier_score', PACKAGE = 'airR', actual, predicted)
+}
+
+#' Confusion Matrix
+#'
+#' This function displays a confusion matrix of predictions.
+#'
+#' @param actual A vector containing the observed class of a point
+#' @param predicted A vector containing the predicted probabilities
+#' @export
+conf_mat <- function(actual, predicted) {
+    .Call('airR_conf_mat', PACKAGE = 'airR', actual, predicted)
+}
+
+#' Hamming Distance
+#'
+#' This function computes the hamming distance of predictions.
+#'
+#' @param actual A vector containing the observed class of a point
+#' @param predicted A vector containing the predicted class.
+#' @export
+hamming_dist <- function(actual, predicted) {
+    .Call('airR_hamming_dist', PACKAGE = 'airR', actual, predicted)
+}
+
+#' Threshold
+#'
+#' This function will convert predicted probabilites to class labels (binary only).
+#'
+#' @param predicted A vector containing the predicted class.
+#' @param thresh The threshhold to classify as a 1 or 0 (defaults to 0.5).
+#' @export
+thresh <- function(predicted, threshhold = 0.5) {
+    .Call('airR_thresh', PACKAGE = 'airR', predicted, threshhold)
+}
+
+#' Squared error
+#'
+#' This function will calculate the element-wise squared error between two vectors
+#'
+#' @param actual A vector containing the observed value of a point
+#' @param predicted A vector containing the predicted value at a point
+#' @export
+#'
+squared_error <- function(actual, predicted) {
+    .Call('airR_squared_error', PACKAGE = 'airR', actual, predicted)
 }
 
 #' Mean squared error
@@ -20,19 +135,7 @@ accuracy <- function(actual, predicted, threshold = 0.5) {
 #'
 #' @param actual A vector containing the observed value of a point
 #' @param predicted A vector containing the predicted value at a point
-NULL
-
-#' Squared error
-#'
-#' This function will calculate the element-wise squared error between two vectors
-#'
-#' @param actual A vector containing the observed value of a point
-#' @param predicted A vector containing the predicted value at a point
-#'
-squared_error <- function(actual, predicted) {
-    .Call('airR_squared_error', PACKAGE = 'airR', actual, predicted)
-}
-
+#' @export
 mean_sq_error <- function(actual, predicted) {
     .Call('airR_mean_sq_error', PACKAGE = 'airR', actual, predicted)
 }
@@ -43,6 +146,7 @@ mean_sq_error <- function(actual, predicted) {
 #'
 #' @param actual A vector containing the observed value of a point
 #' @param predicted A vector containing the predicted value at a point
+#' @export
 rmse <- function(actual, predicted) {
     .Call('airR_rmse', PACKAGE = 'airR', actual, predicted)
 }
@@ -53,6 +157,7 @@ rmse <- function(actual, predicted) {
 #'
 #' @param actual A vector containing the observed value of a point
 #' @param predicted A vector containing the predicted value at a point
+#' @export
 absolute_error <- function(actual, predicted) {
     .Call('airR_absolute_error', PACKAGE = 'airR', actual, predicted)
 }
@@ -63,6 +168,7 @@ absolute_error <- function(actual, predicted) {
 #'
 #' @param actual A vector containing the observed value of a point
 #' @param predicted A vector containing the predicted value at a point
+#' @export
 mean_abs_error <- function(actual, predicted) {
     .Call('airR_mean_abs_error', PACKAGE = 'airR', actual, predicted)
 }
@@ -73,6 +179,7 @@ mean_abs_error <- function(actual, predicted) {
 #'
 #' @param actual A vector containing the observed value of a point
 #' @param predicted A vector containing the predicted value at a point
+#' @export
 median_abs_error <- function(actual, predicted) {
     .Call('airR_median_abs_error', PACKAGE = 'airR', actual, predicted)
 }
@@ -83,6 +190,7 @@ median_abs_error <- function(actual, predicted) {
 #'
 #' @param actual A vector containing the observed value of a point
 #' @param predicted A vector containing the predicted value at a point
+#' @export
 r2_score <- function(actual, predicted) {
     .Call('airR_r2_score', PACKAGE = 'airR', actual, predicted)
 }

@@ -9,6 +9,7 @@ using namespace Rcpp;
 //'
 //' @param actual A vector containing the observed value of a point
 //' @param predicted A vector containing the predicted value at a point
+//' @export
 //'
 // [[Rcpp::export]]
 arma::vec squared_error(const arma::vec & actual, const arma::vec & predicted) {
@@ -25,7 +26,7 @@ arma::vec squared_error(const arma::vec & actual, const arma::vec & predicted) {
 //'
 //' @param actual A vector containing the observed value of a point
 //' @param predicted A vector containing the predicted value at a point
-
+//' @export
 // [[Rcpp::export]]
 double mean_sq_error(const arma::vec & actual, const arma::vec & predicted) {
   if(actual.n_elem != predicted.n_elem) {
@@ -40,6 +41,7 @@ double mean_sq_error(const arma::vec & actual, const arma::vec & predicted) {
 //'
 //' @param actual A vector containing the observed value of a point
 //' @param predicted A vector containing the predicted value at a point
+//' @export
 // [[Rcpp::export]]
 double rmse(const arma::vec & actual, const arma::vec & predicted) {
   if(actual.n_elem != predicted.n_elem) {
@@ -55,6 +57,7 @@ double rmse(const arma::vec & actual, const arma::vec & predicted) {
 //'
 //' @param actual A vector containing the observed value of a point
 //' @param predicted A vector containing the predicted value at a point
+//' @export
 // [[Rcpp::export]]
 arma::vec absolute_error(const arma::vec & actual, const arma::vec & predicted) {
   if(actual.n_elem != predicted.n_elem) {
@@ -69,6 +72,7 @@ arma::vec absolute_error(const arma::vec & actual, const arma::vec & predicted) 
 //'
 //' @param actual A vector containing the observed value of a point
 //' @param predicted A vector containing the predicted value at a point
+//' @export
 // [[Rcpp::export]]
 double mean_abs_error(const arma::vec & actual, const arma::vec & predicted) {
   if(actual.n_elem != predicted.n_elem) {
@@ -83,6 +87,7 @@ double mean_abs_error(const arma::vec & actual, const arma::vec & predicted) {
 //'
 //' @param actual A vector containing the observed value of a point
 //' @param predicted A vector containing the predicted value at a point
+//' @export
 // [[Rcpp::export]]
 double median_abs_error(const arma::vec & actual, const arma::vec & predicted) {
   if(actual.n_elem != predicted.n_elem) {
@@ -97,6 +102,7 @@ double median_abs_error(const arma::vec & actual, const arma::vec & predicted) {
 //'
 //' @param actual A vector containing the observed value of a point
 //' @param predicted A vector containing the predicted value at a point
+//' @export
 // [[Rcpp::export]]
 double r2_score(const arma::vec & actual, const arma::vec & predicted) {
   if(actual.n_elem != predicted.n_elem) {

@@ -6,16 +6,17 @@ Version: 0.1.0
 Authors@R: person("Brad", "Trewhella", email = "brad.trewhella@gmail.com",
   role = c("aut", "cre"))
 Maintainer: <brad.trewhella@gmail.com>
-Description: Contains functions for measuring the error of predictions from models.
+Description: Contains functions for measuring the error of predictions from
+    models.
 License: GPL-2
 LazyData: TRUE
 Imports:
     Rcpp (>= 0.12.6),
     RcppArmadillo (>= 0.4.200.0)
-LinkingTo:
-    Rcpp,
+LinkingTo: Rcpp,
     RcppArmadillo
 Depends:
     RcppArmadillo
 URL: https://github.com/bradtrew/airR
 BugReports: https://github.com/bradtrew/airR/issues
+RoxygenNote: 5.0.1

@@ -19,6 +19,115 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// fbeta_score
+double fbeta_score(const arma::vec& actual, const arma::vec& predicted, const double beta);
+RcppExport SEXP airR_fbeta_score(SEXP actualSEXP, SEXP predictedSEXP, SEXP betaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const arma::vec& >::type actual(actualSEXP);
+    Rcpp::traits::input_parameter< const arma::vec& >::type predicted(predictedSEXP);
+    Rcpp::traits::input_parameter< const double >::type beta(betaSEXP);
+    __result = Rcpp::wrap(fbeta_score(actual, predicted, beta));
+    return __result;
+END_RCPP
+}
+// f1_score
+double f1_score(const arma::vec& actual, const arma::vec& predicted);
+RcppExport SEXP airR_f1_score(SEXP actualSEXP, SEXP predictedSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const arma::vec& >::type actual(actualSEXP);
+    Rcpp::traits::input_parameter< const arma::vec& >::type predicted(predictedSEXP);
+    __result = Rcpp::wrap(f1_score(actual, predicted));
+    return __result;
+END_RCPP
+}
+// precision
+double precision(const arma::vec& actual, const arma::vec& predicted);
+RcppExport SEXP airR_precision(SEXP actualSEXP, SEXP predictedSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const arma::vec& >::type actual(actualSEXP);
+    Rcpp::traits::input_parameter< const arma::vec& >::type predicted(predictedSEXP);
+    __result = Rcpp::wrap(precision(actual, predicted));
+    return __result;
+END_RCPP
+}
+// recall
+double recall(const arma::vec& actual, const arma::vec& predicted);
+RcppExport SEXP airR_recall(SEXP actualSEXP, SEXP predictedSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const arma::vec& >::type actual(actualSEXP);
+    Rcpp::traits::input_parameter< const arma::vec& >::type predicted(predictedSEXP);
+    __result = Rcpp::wrap(recall(actual, predicted));
+    return __result;
+END_RCPP
+}
+// tru_neg_rate
+double tru_neg_rate(const arma::vec& actual, const arma::vec& predicted);
+RcppExport SEXP airR_tru_neg_rate(SEXP actualSEXP, SEXP predictedSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const arma::vec& >::type actual(actualSEXP);
+    Rcpp::traits::input_parameter< const arma::vec& >::type predicted(predictedSEXP);
+    __result = Rcpp::wrap(tru_neg_rate(actual, predicted));
+    return __result;
+END_RCPP
+}
+// brier_score
+double brier_score(const arma::vec& actual, const arma::vec& predicted);
+RcppExport SEXP airR_brier_score(SEXP actualSEXP, SEXP predictedSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const arma::vec& >::type actual(actualSEXP);
+    Rcpp::traits::input_parameter< const arma::vec& >::type predicted(predictedSEXP);
+    __result = Rcpp::wrap(brier_score(actual, predicted));
+    return __result;
+END_RCPP
+}
+// conf_mat
+NumericMatrix conf_mat(const arma::vec& actual, const arma::vec& predicted);
+RcppExport SEXP airR_conf_mat(SEXP actualSEXP, SEXP predictedSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const arma::vec& >::type actual(actualSEXP);
+    Rcpp::traits::input_parameter< const arma::vec& >::type predicted(predictedSEXP);
+    __result = Rcpp::wrap(conf_mat(actual, predicted));
+    return __result;
+END_RCPP
+}
+// hamming_dist
+double hamming_dist(const arma::vec& actual, const arma::vec& predicted);
+RcppExport SEXP airR_hamming_dist(SEXP actualSEXP, SEXP predictedSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const arma::vec& >::type actual(actualSEXP);
+    Rcpp::traits::input_parameter< const arma::vec& >::type predicted(predictedSEXP);
+    __result = Rcpp::wrap(hamming_dist(actual, predicted));
+    return __result;
+END_RCPP
+}
+// thresh
+arma::vec thresh(const arma::vec& predicted, const double threshhold);
+RcppExport SEXP airR_thresh(SEXP predictedSEXP, SEXP threshholdSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const arma::vec& >::type predicted(predictedSEXP);
+    Rcpp::traits::input_parameter< const double >::type threshhold(threshholdSEXP);
+    __result = Rcpp::wrap(thresh(predicted, threshhold));
+    return __result;
+END_RCPP
+}
 // squared_error
 arma::vec squared_error(const arma::vec& actual, const arma::vec& predicted);
 RcppExport SEXP airR_squared_error(SEXP actualSEXP, SEXP predictedSEXP) {

@@ -212,25 +212,63 @@ NumericMatrix conf_mat(const arma::vec & actual, const arma::vec & predicted) {
       }
     }
   }
-  NumericMatrix output(2);
-  output(0,0) = true_neg;
-  output(0,1) = false_pos;
-  output(1,0) = false_neg;
-  output(1,1) = true_pos;
+  NumericMatrix temp(2);
+  temp(0,0) = true_neg;
+  temp(0,1) = false_pos;
+  temp(1,0) = false_neg;
+  temp(1,1) = true_pos;
+  arma::mat armaM(temp.begin(), temp.nrow(), temp.ncol(), true, true);
+  NumericMatrix output =  Rcpp::wrap(arma::floor(armaM));
   colnames(output) = CharacterVector::create("Predicted False","Predicted True");
   rownames(output) = CharacterVector::create("Actual False","Actual True");
-  arma::mat armaM(output.begin(), output.nrow(), output.ncol(), true, true);
-  return Rcpp::wrap(arma::floor(armaM));
+  return output;
 }
 
 
 
 
+//' Hamming Distance
+//'
+//' This function computes the hamming distance of predictions.
+//'
+//' @param actual A vector containing the observed class of a point
+//' @param predicted A vector containing the predicted class.
+//' @export
+// [[Rcpp::export]]
+double hamming_dist(const arma::vec & actual, const arma::vec & predicted) {
+  if(actual.n_elem != predicted.n_elem) {
+    stop("actual and predicted have a different number of elements.");
+  }
+  double correct, incorrect;
+  for (int i =0; i< actual.n_elem;i++) {
+    if (actual(i)==predicted(i)) {
+      correct +=1;
+    } else {
+      incorrect +=1;
+    }
+  }
+  return incorrect;
+}
 
-
-
-
-
-
+//' Threshold
+//'
+//' This function will convert predicted probabilites to class labels (binary only).
+//'
+//' @param predicted A vector containing the predicted class.
+//' @param thresh The threshhold to classify as a 1 or 0 (defaults to 0.5).
+//' @export
+// [[Rcpp::export]]
+arma::vec thresh(const arma::vec & predicted, const double threshhold = 0.5) {
+  int n = predicted.n_elem;
+  arma::vec output(n);
+  for(int i = 0; i < n; i++) {
+    if (predicted(i) >= threshhold){
+      output(i) = 1;
+    } else {
+      output(i) =0;
+    }
+  }
+  return output;
+}
 
 
