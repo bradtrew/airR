@@ -106,12 +106,12 @@ hamming_dist <- function(actual, predicted) {
     .Call('airR_hamming_dist', PACKAGE = 'airR', actual, predicted)
 }
 
-#' Threshold
+#' Threshhold function
 #'
 #' This function will convert predicted probabilites to class labels (binary only).
 #'
 #' @param predicted A vector containing the predicted class.
-#' @param thresh The threshhold to classify as a 1 or 0 (defaults to 0.5).
+#' @param threshhold The threshhold to classify as a 1 or 0 (defaults to 0.5).
 #' @export
 thresh <- function(predicted, threshhold = 0.5) {
     .Call('airR_thresh', PACKAGE = 'airR', predicted, threshhold)

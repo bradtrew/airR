@@ -2,14 +2,14 @@
 % Please edit documentation in R/RcppExports.R
 \name{thresh}
 \alias{thresh}
-\title{Threshold}
+\title{Threshhold function}
 \usage{
 thresh(predicted, threshhold = 0.5)
 }
 \arguments{
 \item{predicted}{A vector containing the predicted class.}
 
-\item{thresh}{The threshhold to classify as a 1 or 0 (defaults to 0.5).}
+\item{threshhold}{The threshhold to classify as a 1 or 0 (defaults to 0.5).}
 }
 \description{
 This function will convert predicted probabilites to class labels (binary only).
