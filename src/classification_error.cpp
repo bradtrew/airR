@@ -69,7 +69,6 @@ double f1_score(const arma::vec & actual, const arma::vec & predicted) {
   return fbeta_score(actual,predicted,1);
 }
 
-
 //' Precision
 //'
 //' This function computes the precision of predictions.
