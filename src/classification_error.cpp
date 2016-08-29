@@ -250,7 +250,7 @@ double hamming_dist(const arma::vec & actual, const arma::vec & predicted) {
   return incorrect;
 }
 
-//' Threshold
+//' Threshhold function
 //'
 //' This function will convert predicted probabilites to class labels (binary only).
 //'
