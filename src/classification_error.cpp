@@ -250,12 +250,12 @@ double hamming_dist(const arma::vec & actual, const arma::vec & predicted) {
   return incorrect;
 }
 
-//' Threshold
+//' Threshhold function
 //'
 //' This function will convert predicted probabilites to class labels (binary only).
 //'
 //' @param predicted A vector containing the predicted class.
-//' @param thresh The threshhold to classify as a 1 or 0 (defaults to 0.5).
+//' @param threshhold The threshhold to classify as a 1 or 0 (defaults to 0.5).
 //' @export
 // [[Rcpp::export]]
 arma::vec thresh(const arma::vec & predicted, const double threshhold = 0.5) {
