@@ -1,7 +1,7 @@
 Package: airR
 Type: Package
 Title: A package containing many common metrics and error
-    functions for regression and classification.
+    functions for regression and classification
 Version: 0.1.0
 Authors@R: person("Brad", "Trewhella", email = "brad.trewhella@gmail.com",
   role = c("aut", "cre"))
