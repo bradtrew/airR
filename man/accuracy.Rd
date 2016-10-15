@@ -12,7 +12,7 @@ accuracy(actual, predicted, threshold = 0.5)
 \item{predicted}{A vector containing the predicted class or probability
 of class membership at a point}
 
-\item{threshold}{Optional parameter which is the probability threshold
+\item{threshold}{Optional parameter which is the probability threshold`
 at which a point is classified as a member of class 1.}
 }
 \description{
