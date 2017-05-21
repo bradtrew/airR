@@ -1,40 +1,45 @@
 #include <RcppArmadillo.h>
 // [[Rcpp::depends(RcppArmadillo)]]
 
-using namespace Rcpp;
+//using namespace Rcpp;
 
 //' Accuracy
 //'
-//' This function computes the accuracy of predictions (%correct).
+//' This function computes the accuracy of predictions (proportion of correct predictions).
 //'
-//' @param actual A vector containing the observed class of a point
+//' @param actual A vector containing the observed class of an observation
 //' @param predicted A vector containing the predicted class or probability
-//' of class membership at a point
+//' of class membership of an observation
 //' @param threshold Optional parameter which is the probability threshold
-//' at which a point is classified as a member of class 1.
+//' at which an observation is classified as a member of class 1.
 //' @export
 // [[Rcpp::export]]
 double accuracy(const arma::vec & actual, const arma::vec & predicted, const double threshold = 0.5) {
+  if(actual.n_elem < 1) {
+    Rcpp::stop("actual is of length 0.");
+  }
   if(actual.n_elem != predicted.n_elem) {
-    stop("actual and predicted have a different number of elements.");
+    Rcpp::stop("actual and predicted have a different number of elements.");
   }
   arma::vec results = arma::conv_to<arma::vec>::from(actual == (predicted > threshold));
   return arma::mean(results);
 }
-
 //' F beta score
 //'
 //' This function computes the F beta score for predictions.
 //'
-//' @param actual A vector containing the observed class of a point
+//' @param actual A vector containing the observed class of an observation
 //' @param predicted A vector containing the predicted class or probability
-//' of class membership at a point
+//' of class membership at an observation
 //' @param beta Specifies which F score you want to calculate (defaults to 1)
 //' @export
 // [[Rcpp::export]]
 double fbeta_score(const arma::vec & actual, const arma::vec & predicted, const double beta = 1) {
+  if(actual.n_elem < 1) {
+    Rcpp::stop("actual is of length 0.");
+  }
   if(actual.n_elem != predicted.n_elem) {
-    stop("actual and predicted have a different number of elements.");
+    Rcpp::stop("actual and predicted have a different number of elements.");
   }
   double true_pos, true_neg, false_pos, false_neg;
   for (int i =0; i< actual.n_elem;i++) {
@@ -60,9 +65,9 @@ double fbeta_score(const arma::vec & actual, const arma::vec & predicted, const 
 //'
 //' This function computes the F 1 score for predictions.
 //'
-//' @param actual A vector containing the observed class of a point
+//' @param actual A vector containing the observed class of an observation
 //' @param predicted A vector containing the predicted class or probability
-//' of class membership at a point
+//' of class membership at an observation
 //' @export
 // [[Rcpp::export]]
 double f1_score(const arma::vec & actual, const arma::vec & predicted) {
@@ -73,13 +78,16 @@ double f1_score(const arma::vec & actual, const arma::vec & predicted) {
 //'
 //' This function computes the precision of predictions.
 //'
-//' @param actual A vector containing the observed class of a point
+//' @param actual A vector containing the observed class of an observation
 //' @param predicted A vector containing the predicted class
 //' @export
 // [[Rcpp::export]]
 double precision(const arma::vec & actual, const arma::vec & predicted) {
+  if(actual.n_elem < 1) {
+    Rcpp::stop("actual is of length 0.");
+  }
   if(actual.n_elem != predicted.n_elem) {
-    stop("actual and predicted have a different number of elements.");
+    Rcpp::stop("actual and predicted have a different number of elements.");
   }
   double true_pos, true_neg, false_pos, false_neg;
   for (int i =0; i< actual.n_elem;i++) {
@@ -104,13 +112,16 @@ double precision(const arma::vec & actual, const arma::vec & predicted) {
 //'
 //' This function computes the recall of predictions.
 //'
-//' @param actual A vector containing the observed class of a point
+//' @param actual A vector containing the observed class of an observation
 //' @param predicted A vector containing the predicted class
 //' @export
 // [[Rcpp::export]]
 double recall(const arma::vec & actual, const arma::vec & predicted) {
+  if(actual.n_elem < 1) {
+    Rcpp::stop("actual is of length 0.");
+  }
   if(actual.n_elem != predicted.n_elem) {
-    stop("actual and predicted have a different number of elements.");
+    Rcpp::stop("actual and predicted have a different number of elements.");
   }
   double true_pos, true_neg, false_pos, false_neg;
   for (int i =0; i< actual.n_elem;i++) {
@@ -136,13 +147,16 @@ double recall(const arma::vec & actual, const arma::vec & predicted) {
 //'
 //' This function computes the true negative rate of predictions.
 //'
-//' @param actual A vector containing the observed class of a point
+//' @param actual A vector containing the observed class of an observation
 //' @param predicted A vector containing the predicted class
 //' @export
 // [[Rcpp::export]]
 double tru_neg_rate(const arma::vec & actual, const arma::vec & predicted) {
+  if(actual.n_elem < 1) {
+    Rcpp::stop("actual is of length 0.");
+  }
   if(actual.n_elem != predicted.n_elem) {
-    stop("actual and predicted have a different number of elements.");
+    Rcpp::stop("actual and predicted have a different number of elements.");
   }
   double true_pos, true_neg, false_pos, false_neg;
   for (int i =0; i< actual.n_elem;i++) {
@@ -170,13 +184,16 @@ double tru_neg_rate(const arma::vec & actual, const arma::vec & predicted) {
 //'
 //' This function computes the brier score of predictions.
 //'
-//' @param actual A vector containing the observed class of a point
+//' @param actual A vector containing the observed class of an observation
 //' @param predicted A vector containing the predicted probabilities
 //' @export
 // [[Rcpp::export]]
 double brier_score(const arma::vec & actual, const arma::vec & predicted) {
+  if(actual.n_elem < 1) {
+    Rcpp::stop("actual is of length 0.");
+  }
   if(actual.n_elem != predicted.n_elem) {
-    stop("actual and predicted have a different number of elements.");
+    Rcpp::stop("actual and predicted have a different number of elements.");
   }
   return arma::mean(pow(actual - predicted,2));
 }
@@ -187,13 +204,16 @@ double brier_score(const arma::vec & actual, const arma::vec & predicted) {
 //'
 //' This function displays a confusion matrix of predictions.
 //'
-//' @param actual A vector containing the observed class of a point
+//' @param actual A vector containing the observed class of an observation
 //' @param predicted A vector containing the predicted probabilities
 //' @export
 // [[Rcpp::export]]
-NumericMatrix conf_mat(const arma::vec & actual, const arma::vec & predicted) {
+Rcpp::NumericMatrix conf_mat(const arma::vec & actual, const arma::vec & predicted) {
+  if(actual.n_elem < 1) {
+    Rcpp::stop("actual is of length 0.");
+  }
   if(actual.n_elem != predicted.n_elem) {
-    stop("actual and predicted have a different number of elements.");
+    Rcpp::stop("actual and predicted have a different number of elements.");
   }
   double true_pos, true_neg, false_pos, false_neg;
   for (int i =0; i< actual.n_elem;i++) {
@@ -211,15 +231,15 @@ NumericMatrix conf_mat(const arma::vec & actual, const arma::vec & predicted) {
       }
     }
   }
-  NumericMatrix temp(2);
+  Rcpp::NumericMatrix temp(2);
   temp(0,0) = true_neg;
   temp(0,1) = false_pos;
   temp(1,0) = false_neg;
   temp(1,1) = true_pos;
   arma::mat armaM(temp.begin(), temp.nrow(), temp.ncol(), true, true);
-  NumericMatrix output =  Rcpp::wrap(arma::floor(armaM));
-  colnames(output) = CharacterVector::create("Predicted False","Predicted True");
-  rownames(output) = CharacterVector::create("Actual False","Actual True");
+  Rcpp::NumericMatrix output =  Rcpp::wrap(arma::floor(armaM));
+  colnames(output) = Rcpp::CharacterVector::create("Predicted False","Predicted True");
+  rownames(output) = Rcpp::CharacterVector::create("Actual False","Actual True");
   return output;
 }
 
@@ -230,13 +250,16 @@ NumericMatrix conf_mat(const arma::vec & actual, const arma::vec & predicted) {
 //'
 //' This function computes the hamming distance of predictions.
 //'
-//' @param actual A vector containing the observed class of a point
+//' @param actual A vector containing the observed class of an observation
 //' @param predicted A vector containing the predicted class.
 //' @export
 // [[Rcpp::export]]
 double hamming_dist(const arma::vec & actual, const arma::vec & predicted) {
+  if(actual.n_elem < 1) {
+    Rcpp::stop("actual is of length 0.");
+  }
   if(actual.n_elem != predicted.n_elem) {
-    stop("actual and predicted have a different number of elements.");
+    Rcpp::stop("actual and predicted have a different number of elements.");
   }
   double correct, incorrect;
   for (int i =0; i< actual.n_elem;i++) {
@@ -258,6 +281,9 @@ double hamming_dist(const arma::vec & actual, const arma::vec & predicted) {
 //' @export
 // [[Rcpp::export]]
 arma::vec thresh(const arma::vec & predicted, const double threshhold = 0.5) {
+  if(predicted.n_elem < 1) {
+    Rcpp::stop("predicted is of length 0.");
+  }
   int n = predicted.n_elem;
   arma::vec output(n);
   for(int i = 0; i < n; i++) {
