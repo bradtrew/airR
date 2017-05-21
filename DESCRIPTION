@@ -12,10 +12,11 @@ License: GPL-2
 LazyData: TRUE
 Imports:
     Rcpp (>= 0.12.6),
-    RcppArmadillo (>= 0.4.200.0)
+    RcppArmadillo (>= 0.4.200.0),
+    xgboost
 Suggests: testthat
 LinkingTo: Rcpp,
     RcppArmadillo
 URL: https://github.com/bradtrew/airR
 BugReports: https://github.com/bradtrew/airR/issues
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1

@@ -14,4 +14,3 @@ r2_score(actual, predicted)
 \description{
 This function will calculate the r2 score between two vectors.
 }
-

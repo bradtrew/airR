@@ -8,6 +8,7 @@
 #' of the function. The error function must return a single value.
 #' @return A function which can be used within xgboost.
 #'
+#' @importFrom xgboost getinfo
 #' @export
 xgb_error <- function(err_func) {
   UseMethod("xgb_error")

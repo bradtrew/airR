@@ -14,4 +14,3 @@ thresh(predicted, threshhold = 0.5)
 \description{
 This function will convert predicted probabilites to class labels (binary only).
 }
-

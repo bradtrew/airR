@@ -3,13 +3,13 @@
 
 #' Accuracy
 #'
-#' This function computes the accuracy of predictions (%correct).
+#' This function computes the accuracy of predictions (proportion of correct predictions).
 #'
-#' @param actual A vector containing the observed class of a point
+#' @param actual A vector containing the observed class of an observation
 #' @param predicted A vector containing the predicted class or probability
-#' of class membership at a point
+#' of class membership of an observation
 #' @param threshold Optional parameter which is the probability threshold
-#' at which a point is classified as a member of class 1.
+#' at which an observation is classified as a member of class 1.
 #' @export
 accuracy <- function(actual, predicted, threshold = 0.5) {
     .Call('airR_accuracy', PACKAGE = 'airR', actual, predicted, threshold)
@@ -19,9 +19,9 @@ accuracy <- function(actual, predicted, threshold = 0.5) {
 #'
 #' This function computes the F beta score for predictions.
 #'
-#' @param actual A vector containing the observed class of a point
+#' @param actual A vector containing the observed class of an observation
 #' @param predicted A vector containing the predicted class or probability
-#' of class membership at a point
+#' of class membership at an observation
 #' @param beta Specifies which F score you want to calculate (defaults to 1)
 #' @export
 fbeta_score <- function(actual, predicted, beta = 1) {
@@ -32,9 +32,9 @@ fbeta_score <- function(actual, predicted, beta = 1) {
 #'
 #' This function computes the F 1 score for predictions.
 #'
-#' @param actual A vector containing the observed class of a point
+#' @param actual A vector containing the observed class of an observation
 #' @param predicted A vector containing the predicted class or probability
-#' of class membership at a point
+#' of class membership at an observation
 #' @export
 f1_score <- function(actual, predicted) {
     .Call('airR_f1_score', PACKAGE = 'airR', actual, predicted)
@@ -44,7 +44,7 @@ f1_score <- function(actual, predicted) {
 #'
 #' This function computes the precision of predictions.
 #'
-#' @param actual A vector containing the observed class of a point
+#' @param actual A vector containing the observed class of an observation
 #' @param predicted A vector containing the predicted class
 #' @export
 precision <- function(actual, predicted) {
@@ -55,7 +55,7 @@ precision <- function(actual, predicted) {
 #'
 #' This function computes the recall of predictions.
 #'
-#' @param actual A vector containing the observed class of a point
+#' @param actual A vector containing the observed class of an observation
 #' @param predicted A vector containing the predicted class
 #' @export
 recall <- function(actual, predicted) {
@@ -66,7 +66,7 @@ recall <- function(actual, predicted) {
 #'
 #' This function computes the true negative rate of predictions.
 #'
-#' @param actual A vector containing the observed class of a point
+#' @param actual A vector containing the observed class of an observation
 #' @param predicted A vector containing the predicted class
 #' @export
 tru_neg_rate <- function(actual, predicted) {
@@ -77,7 +77,7 @@ tru_neg_rate <- function(actual, predicted) {
 #'
 #' This function computes the brier score of predictions.
 #'
-#' @param actual A vector containing the observed class of a point
+#' @param actual A vector containing the observed class of an observation
 #' @param predicted A vector containing the predicted probabilities
 #' @export
 brier_score <- function(actual, predicted) {
@@ -88,7 +88,7 @@ brier_score <- function(actual, predicted) {
 #'
 #' This function displays a confusion matrix of predictions.
 #'
-#' @param actual A vector containing the observed class of a point
+#' @param actual A vector containing the observed class of an observation
 #' @param predicted A vector containing the predicted probabilities
 #' @export
 conf_mat <- function(actual, predicted) {
@@ -99,7 +99,7 @@ conf_mat <- function(actual, predicted) {
 #'
 #' This function computes the hamming distance of predictions.
 #'
-#' @param actual A vector containing the observed class of a point
+#' @param actual A vector containing the observed class of an observation
 #' @param predicted A vector containing the predicted class.
 #' @export
 hamming_dist <- function(actual, predicted) {

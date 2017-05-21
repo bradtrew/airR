@@ -7,14 +7,13 @@
 fbeta_score(actual, predicted, beta = 1)
 }
 \arguments{
-\item{actual}{A vector containing the observed class of a point}
+\item{actual}{A vector containing the observed class of an observation}
 
 \item{predicted}{A vector containing the predicted class or probability
-of class membership at a point}
+of class membership at an observation}
 
 \item{beta}{Specifies which F score you want to calculate (defaults to 1)}
 }
 \description{
 This function computes the F beta score for predictions.
 }
-

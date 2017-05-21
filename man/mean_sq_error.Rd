@@ -14,4 +14,3 @@ mean_sq_error(actual, predicted)
 \description{
 This function will calculate the mean squared error between two vectors.
 }
-

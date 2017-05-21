@@ -14,4 +14,3 @@ absolute_error(actual, predicted)
 \description{
 This function will calculate the element-wise absolute error between two vectors.
 }
-

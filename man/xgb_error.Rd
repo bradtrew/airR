@@ -2,9 +2,9 @@
 % Please edit documentation in R/xgb_error.R
 \name{xgb_error}
 \alias{xgb_error}
-\alias{xgb_error.character}
 \alias{xgb_error.default}
 \alias{xgb_error.function}
+\alias{xgb_error.character}
 \title{Xgboost Error}
 \usage{
 xgb_error(err_func)
@@ -27,4 +27,3 @@ A wrapper function to allow your error metrics to be used as evaluation metrics
 for xgboost. Note that this does not mean it is the objective function,
 it is only used as an evaluation (checks the error as the algorithm progresses)
 }
-

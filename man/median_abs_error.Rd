@@ -14,4 +14,3 @@ median_abs_error(actual, predicted)
 \description{
 This function will calculate the median absolute error between two vectors.
 }
-

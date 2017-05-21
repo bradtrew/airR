@@ -14,4 +14,3 @@ rmse(actual, predicted)
 \description{
 This function will calculate the root mean squared error between two vectors.
 }
-

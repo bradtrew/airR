@@ -93,7 +93,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // conf_mat
-NumericMatrix conf_mat(const arma::vec& actual, const arma::vec& predicted);
+Rcpp::NumericMatrix conf_mat(const arma::vec& actual, const arma::vec& predicted);
 RcppExport SEXP airR_conf_mat(SEXP actualSEXP, SEXP predictedSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;

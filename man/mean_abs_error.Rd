@@ -14,4 +14,3 @@ mean_abs_error(actual, predicted)
 \description{
 This function will calculate the mean absolute error between two vectors.
 }
-

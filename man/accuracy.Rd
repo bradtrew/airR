@@ -7,15 +7,14 @@
 accuracy(actual, predicted, threshold = 0.5)
 }
 \arguments{
-\item{actual}{A vector containing the observed class of a point}
+\item{actual}{A vector containing the observed class of an observation}
 
 \item{predicted}{A vector containing the predicted class or probability
-of class membership at a point}
+of class membership of an observation}
 
-\item{threshold}{Optional parameter which is the probability threshold`
-at which a point is classified as a member of class 1.}
+\item{threshold}{Optional parameter which is the probability threshold
+at which an observation is classified as a member of class 1.}
 }
 \description{
-This function computes the accuracy of predictions (%correct).
+This function computes the accuracy of predictions (proportion of correct predictions).
 }
-

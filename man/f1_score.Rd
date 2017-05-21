@@ -7,12 +7,11 @@
 f1_score(actual, predicted)
 }
 \arguments{
-\item{actual}{A vector containing the observed class of a point}
+\item{actual}{A vector containing the observed class of an observation}
 
 \item{predicted}{A vector containing the predicted class or probability
-of class membership at a point}
+of class membership at an observation}
 }
 \description{
 This function computes the F 1 score for predictions.
 }
-

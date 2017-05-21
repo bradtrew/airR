@@ -7,11 +7,10 @@
 tru_neg_rate(actual, predicted)
 }
 \arguments{
-\item{actual}{A vector containing the observed class of a point}
+\item{actual}{A vector containing the observed class of an observation}
 
 \item{predicted}{A vector containing the predicted class}
 }
 \description{
 This function computes the true negative rate of predictions.
 }
-

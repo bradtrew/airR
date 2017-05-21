@@ -7,11 +7,10 @@
 conf_mat(actual, predicted)
 }
 \arguments{
-\item{actual}{A vector containing the observed class of a point}
+\item{actual}{A vector containing the observed class of an observation}
 
 \item{predicted}{A vector containing the predicted probabilities}
 }
 \description{
 This function displays a confusion matrix of predictions.
 }
-

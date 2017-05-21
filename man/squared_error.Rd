@@ -14,4 +14,3 @@ squared_error(actual, predicted)
 \description{
 This function will calculate the element-wise squared error between two vectors
 }
-
