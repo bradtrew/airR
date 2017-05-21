@@ -13,6 +13,7 @@ LazyData: TRUE
 Imports:
     Rcpp (>= 0.12.6),
     RcppArmadillo (>= 0.4.200.0)
+Suggests: testthat
 LinkingTo: Rcpp,
     RcppArmadillo
 URL: https://github.com/bradtrew/airR
